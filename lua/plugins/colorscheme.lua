@@ -112,6 +112,12 @@ return {
         hl.FloatBorder = { fg = p.selection }
         hl.WinSeparator = { fg = p.selection }
         hl.SnacksDashboardHeader = { fg = p.accent }
+        -- Logo LoudVim: nota en el color de acento y texto en degradado
+        hl.LoudVimNote = { fg = vim.fn.has("wsl") == 1 and p.accent or p.pink, bold = true }
+        local gradient = { p.mint, p.aqua, p.lavender, p.lavender, p.pink_soft, p.pink }
+        for i, color in ipairs(gradient) do
+          hl["LoudVim" .. i] = { fg = color }
+        end
         hl.SnacksDashboardKey = { fg = p.pink }
         hl.SnacksDashboardIcon = { fg = p.lavender }
       end,
